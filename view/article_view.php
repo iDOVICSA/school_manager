@@ -3,7 +3,7 @@ require_once('./controller/article_controller.php') ;
 
 class article_view {
     
-    public function afficher_article_view () {
+   /* public function afficher_article_view () {
         try {
             $article_controller = new article_controller() ;
             $article = $article_controller->get_article_controller(1) ; 
@@ -12,7 +12,7 @@ class article_view {
         catch(Exception $e) {
             echo $e ;
         }
-    }
+    }*/
     public function afficher_article_details_view($id_article)  {
         require("./view/html_views/menu.php") ;
         try {

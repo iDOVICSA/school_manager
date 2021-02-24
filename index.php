@@ -4,6 +4,7 @@ require_once('./controller/page_acceuil_controller.php');
 require_once('./controller/page_presentation_ecole_controller.php') ;
 require_once('./controller/page_contact_controller.php') ;
 require_once('./controller/page_espace_eleve_controller.php');
+require_once('./controller/eleve_controller.php') ;
 
 
 
@@ -46,7 +47,7 @@ if ($_GET["route"] == 'article_details') {
  };
 
 
- // Les routes d'administrateur :
+ // Les routes d'administrateur : -------------------------------------------------------------------------------
  if ($_GET["route"] == 'ajout_article_form') {
       $ac = new article_controller() ;
       $ac->afficher_ajout_article_form_controller() ;
@@ -75,12 +76,13 @@ if ($_GET["route"] == 'modification_contact_ecole_form') {
       $pc->modification_contact_controller() ;
   };
  
- // l'espace eleve
+ // l'espace eleve --------------------------------------------------------------------------------
  if ($_GET["route"] == 'espace_eleve') {
       $ee = new page_espace_eleve_controller() ;
       $ee->afficher_page_espace_elever_controller() ; 
 };
 
 if ($_GET["route"] == 'eleve_info') {
-echo "eleve info" ; 
+      $ec = new eleve_controller() ;
+      $ec->afficher_eleve_infos_controller(1) ;
 };
