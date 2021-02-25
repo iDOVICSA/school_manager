@@ -14,4 +14,9 @@ class eleve_view
             echo $e;
         }
     }
+    public function afficher_ajout_eleve_form_view()
+    {
+         require_once ("./view/html_views/ajout_eleve_form.php") ;
+
+    }
 }

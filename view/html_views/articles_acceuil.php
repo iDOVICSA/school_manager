@@ -4,6 +4,7 @@
 <html>
 
 <body>
+
     <div class="grid grid-cols-4 gap-2 px-8">
          <?php
         $nbr_articles = 0;

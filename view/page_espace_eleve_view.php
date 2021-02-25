@@ -1,5 +1,6 @@
 <?php
 require_once('./controller/article_controller.php');
+
 class page_espace_eleve_view
 {
  
@@ -10,6 +11,9 @@ class page_espace_eleve_view
             $articles = $article_controller->get_all_articles_controller(4);
             // audiance 4 idique les eleve 
             require("./view/html_views/articles_acceuil.php");
+           $user_type=4 ; 
+
+            require ("./view/html_views/login.php") ; 
         } catch (Exception $ex) {
             echo $ex;
         }

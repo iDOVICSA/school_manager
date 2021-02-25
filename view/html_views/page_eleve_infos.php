@@ -10,7 +10,13 @@
             <div class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
                 <img src="./images/avatar.png" class="h-24 w-24 object-cover rounded-full">
                 <h1 class="text-2xl font-semibold"><?php echo $eleve['nom'] . " " . $eleve['prenom']; ?></h1>
+                <form method="POST" action="deconnexion">
+                    <div class="block md:flex items-center justify-between">
+                        <button type="submit" class="align-middle bg-white hover:bg-indigo-600 text-center px-4 py-2 text-black text-sm font-semibold rounded-lg inline-block shadow-lg">Déconnexion</button>
+                    </div>
+                </form>
             </div>
+
         </div>
 
         <div class="col-span-12 md:border-solid md:border-l md:border-black md:border-opacity-25 h-full pb-12 md:col-span-10">
@@ -99,10 +105,10 @@
                         <div>Matière</div>
                         <div>Note</div>
                         <?php
-                             foreach ($eleve_notes as $eleve_note) {
-                                echo "<div>".$eleve_note['nom_matiere']."</div>";
-                                echo "<div>".$eleve_note['note']."</div>";
-                            }
+                        foreach ($eleve_notes as $eleve_note) {
+                            echo "<div>" . $eleve_note['nom_matiere'] . "</div>";
+                            echo "<div>" . $eleve_note['note'] . "</div>";
+                        }
                         ?>
                     </div>
 
