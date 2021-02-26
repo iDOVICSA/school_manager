@@ -7,6 +7,8 @@ require_once('./controller/page_espace_eleve_controller.php');
 require_once('./controller/eleve_controller.php');
 require_once('./controller/user_controller.php');
 require_once('./model/connection_model.php');
+require_once('./controller/enseignant_controller.php') ; 
+require_once('./controller/seance_controller.php') ; 
 
 
 
@@ -97,13 +99,46 @@ if ($_GET["route"] == 'ajout_eleve') {
 
 
 
-
-
 if ($_GET["route"] == 'login') {
       $uc = new user_controller();
       $uc->login_controller();
 };
 
+
+
+
+if ($_GET["route"] == 'ajout_seance_form') {
+      $pc = new seance_controller();
+      $pc->afficher_ajout_seance_form_controller(); 
+};
+
+if ($_GET["route"] == 'ajout_seance') {
+      $pc = new seance_controller();
+      $pc->ajout_seance_controller(); 
+};
+
+
+
+
+
+
+
+
+
+// l'espace enseignant -----------------------------------------------------------------------------------------
+
+
+
+
+if ($_GET["route"] == 'ajout_enseignant_form') {
+      $pc = new enseignant_controller();
+      $pc->afficher_ajout_enseignant_form_controller(); 
+};
+
+if ($_GET["route"] == 'ajout_enseignant') {
+      $pc = new enseignant_controller();
+      $pc->ajout_enseignant_controller();
+};
 
 
 
@@ -124,5 +159,7 @@ if ($_GET["route"] == 'eleve_info') {
             header('Location:  access_denied.php');
       }
 };
+
+
 
 

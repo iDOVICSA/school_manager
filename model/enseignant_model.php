@@ -1,6 +1,12 @@
+<?php
+require_once('connection_model.php');
+class enseignant_model
+{
+    public function ajout_enseignant_model()
+    {
         $nom = $_POST['nom'];
         $prenom = $_POST['prenom'];
-        $enseignant_id = $_POST['enseignant_id'];
+        $telephone = $_POST['telephone'];
         $email = $_POST['email'];
         $connection_model = new connection_model();
         $c = $connection_model->connexion();
@@ -22,17 +28,20 @@
             $user_id = $user['user_id'];
             $sql = "INSERT INTO enseignant  (nom,prenom,telephone,user_id) VALUES(?,?,?,?)";
             $row = $c->prepare($sql);
-            $row->execute([$nom, $prenom, $enseignant_id, $user_id]);
+            $row->execute([$nom, $prenom, $telephone, $user_id]);
         }
         $connection_model->deconnexion($c);
+    }
 
+    public function get_all_enseignants_model()
+    {
+        $connection_model = new connection_model() ; 
+        $c = $connection_model->connexion() ;  
+        $sql = "select * from enseignant" ;
+        $row = $c->prepare($sql) ;    
+        $row->execute() ; 
+        return $row->fetchAll() ;
 
-
-
-         $ens = $_POST['enseignant'] ; 
-      $teacher = explode(' : ', $ens);
-echo $teacher[0] ; 
-$t =  $teacher[0] ;
-echo $t+1 ; 
-echo '<br>' ; 
-      var_dump($_POST) ; 
+    }
+    
+}
