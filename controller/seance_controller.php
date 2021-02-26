@@ -8,7 +8,7 @@ class seance_controller {
 public function afficher_ajout_seance_form_controller()
 {
     $ev = new seance_view() ;
-    $ev->afficher_ajout_seance_form_controller() ; 
+    $ev->afficher_ajout_seance_form_view() ; 
 }
 
 

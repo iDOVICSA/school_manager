@@ -9,7 +9,7 @@ require_once('./controller/user_controller.php');
 require_once('./model/connection_model.php');
 require_once('./controller/enseignant_controller.php') ; 
 require_once('./controller/seance_controller.php') ; 
-
+require_once ('./controller/reception_controller.php');
 
 
 if ($_GET["route"] == 'Acceuil') {
@@ -99,6 +99,7 @@ if ($_GET["route"] == 'ajout_eleve') {
 
 
 
+
 if ($_GET["route"] == 'login') {
       $uc = new user_controller();
       $uc->login_controller();
@@ -118,6 +119,16 @@ if ($_GET["route"] == 'ajout_seance') {
 };
 
 
+
+if ($_GET["route"] == 'ajout_reception_form') {
+      $pc = new reception_controller();
+      $pc->afficher_ajout_reception_form_controller(); 
+};
+
+if ($_GET["route"] == 'ajout_reception') {
+      $pc = new reception_controller();
+      $pc->ajout_reception_controller(); 
+};
 
 
 
