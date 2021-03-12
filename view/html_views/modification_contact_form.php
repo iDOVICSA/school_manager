@@ -2,7 +2,8 @@
 <link href="./css/tailwind.min.css" rel="stylesheet">
 
 <html>
-
+<main  class="flex-1 bg-gray-200 dark:bg-gray-900 overflow-y-auto transition
+		duration-500 ease-in-out">
 <!-- component -->
 <form method="POST" action="modification_contact_ecole" enctype="multipart/form-data">
     <div class="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
@@ -24,12 +25,13 @@
             </div>
             <div class="col-span-2 text-right">
                 <button type="submit" name="submit" class="py-3 px-6 bg-green-500 text-white font-bold w-full sm:w-32">
-                    Submit
+                    Modifier
                 </button>
             </div>
 
         </div>
     </div>
 </form>
+</main>
 
 </html>

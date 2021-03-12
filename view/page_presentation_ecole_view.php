@@ -21,6 +21,7 @@ class page_presentation_ecole_view
     }
 
     public function afficher_ajout_presentation_form_view() {
+            require ("./view/html_views/admin_dashboard.php") ; 
             require ("./view/html_views/ajout_presentation_form.php") ;
     }
 }

@@ -25,9 +25,8 @@ class article_view {
         }
     }
     public function afficher_ajout_article_form_view() {
+         require("./view/html_views/admin_dashboard.php") ; 
          require("./view/html_views/ajout_article_form.php") ;
 
     }
 }
-
-?>

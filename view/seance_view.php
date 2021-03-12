@@ -13,6 +13,7 @@ class seance_view
         $classes = $cc->get_all_classes_controller() ; 
         $mc = new matiere_controller() ;
         $matieres = $mc->get_all_matieres_controller() ; 
+        require_once ('./view/html_views/admin_dashboard.php') ;
          require_once ("./view/html_views/ajout_seance_form.php") ;
     }
 }

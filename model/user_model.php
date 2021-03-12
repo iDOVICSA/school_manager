@@ -38,6 +38,13 @@ class user_model
                 $_SESSION['parent_id'] = $parent['parent_id'];
                 header('Location: parent_info');
             }
+            if ($_POST['user_type'] ==1) {
+                
+                session_start();
+                $_SESSION["valid"] = true;
+                $_SESSION["user_type"] = 1 ; 
+                 header('Location: ajout_article_form');
+            }
 
         }
         $connection_model->deconnexion($c);

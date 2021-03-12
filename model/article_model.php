@@ -38,9 +38,32 @@
                 $uploadOk = 0;
             }
         }
-        $sql = "INSERT INTO article  (title,image,description) VALUES(?,?,?)";
+        if(isset($_POST["Tous"])){
+            $audiance = 1 ;
+          }
+          elseif(isset($_POST["Enseignants"])) {
+            $audiance = 2 ;
+
+          }
+          elseif(isset($_POST["Parents"])) {
+            $audiance = 3 ;
+
+          }
+     
+          elseif(isset($_POST["Primaire"])) {
+            $audiance = 4 ;
+
+          }
+          elseif(isset($_POST["Moyen"])) {
+            $audiance = 5 ;
+          }
+          elseif(isset($_POST["Secondaires"])) {
+            $audiance = 6 ;
+
+          }
+                  $sql = "INSERT INTO article  (title,image,description,audiance_article) VALUES(?,?,?,?)";
         $row = $c->prepare($sql);
-        $row->execute([$_POST['title'],basename($_FILES["fileToUpload"]["name"]),$_POST["description"]]);
+        $row->execute([$_POST['title'],basename($_FILES["fileToUpload"]["name"]),$_POST["description"],$audiance]);
     }
 
 }

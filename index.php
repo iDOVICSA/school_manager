@@ -63,77 +63,135 @@ if ($_GET["route"] == 'article_details') {
 // Les routes d'administrateur : -------------------------------------------------------------------------------
 
 
+if ($_GET["route"] == 'admin') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            header('Location:  ajout_article_form');
+      } else {
+            $ac = new user_controller();
+            $ac->afficher_page_login_admin_controller();
+      }
+};
 
 
 
 if ($_GET["route"] == 'ajout_article_form') {
-      $ac = new article_controller();
-      $ac->afficher_ajout_article_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            $ac = new article_controller();
+            $ac->afficher_ajout_article_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 
 if ($_GET["route"] == 'ajout_article') {
       $ac = new article_controller();
       $ac->ajout_article_controller();
+      header('Location:  admin');
 };
 
 if ($_GET["route"] == 'ajout_presentation_form') {
-      $pe = new page_presentation_ecole_controller();
-      $pe->afficher_ajout_presentation_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            $pe = new page_presentation_ecole_controller();
+            $pe->afficher_ajout_presentation_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 if ($_GET["route"] == 'ajout_presentation_ecole') {
       $pe = new page_presentation_ecole_controller();
       $pe->ajout_presentation_form_controller();
+      header('Location:  admin');
 };
 if ($_GET["route"] == 'modification_contact_ecole_form') {
-      $pc = new page_contact_controller();
-      $pc->modification_contact_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            $pc = new page_contact_controller();
+            $pc->modification_contact_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 if ($_GET["route"] == 'modification_contact_ecole') {
       $pc = new page_contact_controller();
       $pc->modification_contact_controller();
+      header('Location:  admin');
 };
 
 if ($_GET["route"] == 'ajout_eleve_form') {
-      $pc = new eleve_controller();
-      $pc->afficher_ajout_eleve_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            $pc = new eleve_controller();
+            $pc->afficher_ajout_eleve_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 if ($_GET["route"] == 'ajout_eleve') {
       $pc = new eleve_controller();
       $pc->ajout_eleve_controller();
+      header('Location:  admin');
 };
 
-
-
-
-
-
-
-
 if ($_GET["route"] == 'ajout_seance_form') {
-      $pc = new seance_controller();
-      $pc->afficher_ajout_seance_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+            $pc = new seance_controller();
+            $pc->afficher_ajout_seance_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 
 if ($_GET["route"] == 'ajout_seance') {
       $pc = new seance_controller();
       $pc->ajout_seance_controller();
+      header('Location:  admin');
 };
 
 
 
 if ($_GET["route"] == 'ajout_reception_form') {
-      $pc = new reception_controller();
-      $pc->afficher_ajout_reception_form_controller();
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+
+            $pc = new reception_controller();
+            $pc->afficher_ajout_reception_form_controller();
+      } else {
+            header('Location:  admin');
+      }
 };
 
 if ($_GET["route"] == 'ajout_reception') {
       $pc = new reception_controller();
       $pc->ajout_reception_controller();
+      header('Location:  admin');
 };
 
 
 
 
+
+
+if ($_GET["route"] == 'ajout_enseignant_form') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+
+            $pc = new enseignant_controller();
+            $pc->afficher_ajout_enseignant_form_controller();
+      } else {
+            header('Location:  admin');
+      }
+    
+};
+
+if ($_GET["route"] == 'ajout_enseignant') {
+      $pc = new enseignant_controller();
+      $pc->ajout_enseignant_controller();
+      header('Location:  admin');
+};
 
 
 
@@ -142,23 +200,10 @@ if ($_GET["route"] == 'ajout_reception') {
 
 
 
-if ($_GET["route"] == 'ajout_enseignant_form') {
-      $pc = new enseignant_controller();
-      $pc->afficher_ajout_enseignant_form_controller();
-};
-
-if ($_GET["route"] == 'ajout_enseignant') {
-      $pc = new enseignant_controller();
-      $pc->ajout_enseignant_controller();
-};
-
-
-
-
-
 
 
 // l'espace parent ---------------------------------------------------
+
 
 
 if ($_GET["route"] == 'espace_parent') {
@@ -186,7 +231,6 @@ if ($_GET["route"] == 'espace_eleve') {
       session_start();
       if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 4) {
             header('Location:  eleve_info');
-
       } else {
             $ee = new page_espace_eleve_controller();
             $ee->afficher_page_espace_elever_controller();

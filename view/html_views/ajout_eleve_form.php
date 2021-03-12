@@ -2,7 +2,8 @@
 <link href="./css/tailwind.min.css" rel="stylesheet">
 
 <html>
-
+<main class="flex-1 bg-gray-200 dark:bg-gray-900 overflow-y-auto transition
+		duration-500 ease-in-out">
 <!-- component -->
 <form method="POST" action="ajout_eleve" enctype="multipart/form-data">
     <div class="max-w-2xl bg-white py-10 px-5 m-auto w-full mt-10">
@@ -50,9 +51,9 @@
                     Ajouter
                 </button>
             </div>
-
         </div>
     </div>
 </form>
+</main>
 
 </html>
