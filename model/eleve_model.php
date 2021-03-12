@@ -73,7 +73,7 @@
         $eleve_classe_id = $row->fetch() ;
         $sql = "select * from seance INNER JOIN matiere on seance.matiere_id = matiere.matiere_id    where (classe_id) =(?)" ;
         $row = $c->prepare($sql) ;    
-        $row->execute([intval($eleve_classe_id)]); 
+        $row->execute([$eleve_classe_id["classe_id"]]); 
         $eleve_edt = $row->fetchAll();
         $connection_model->deconnexion($c); 
         return $eleve_edt;

@@ -43,5 +43,57 @@ class enseignant_model
         return $row->fetchAll() ;
 
     }
+
+    public function get_enseignant_infos_model($enseignant_id)
+    {
+        $connection_model = new connection_model() ; 
+        $c = $connection_model->connexion() ;  
+        $sql = "select * from enseignant INNER JOIN users on users.user_id=enseignant.user_id where enseignant_id = (?)" ;
+        $row = $c->prepare($sql) ;    
+        $row->execute([$enseignant_id]) ; 
+        return $row->fetch() ;
+        
+    }
+
+    public function get_all_enseignants_classes_controller($enseignant_id)
+    {
+        $connection_model = new connection_model() ; 
+        $c = $connection_model->connexion() ;  
+        $sql = "SELECT DISTINCT classe_id from seance WHERE enseignant_id=(?)";
+        $row = $c->prepare($sql);    
+        $row->execute([$enseignant_id]); 
+        $id_classes =  $row->fetchAll();
+        $all_classes =  array() ;
+        $cpt=0;
+        foreach ($id_classes as $classe) {
+            $sql = "SELECT *  from classe WHERE classe_id=(?)";
+            $row = $c->prepare($sql);    
+            $row->execute([$classe["classe_id"]]); 
+            $all_classes[$cpt] =  $row->fetch();
+            $cpt++ ; 
+        }
+        return $all_classes;
+    }
+    public function get_all_enseignants_eleves_controller($enseignant_id)
+    {
+        $connection_model = new connection_model() ; 
+        $c = $connection_model->connexion() ;  
+        $sql = "SELECT DISTINCT classe_id from seance WHERE enseignant_id=(?)";
+        $row = $c->prepare($sql);    
+        $row->execute([$enseignant_id]); 
+        $id_classes =  $row->fetchAll();
+        $all_eleves =  array() ;
+        $cpt=0;
+        foreach ($id_classes as $classe) {
+            $sql = "SELECT *  from eleve WHERE classe_id=(?)";
+            $row = $c->prepare($sql);    
+            $row->execute([$classe["classe_id"]]); 
+            $all_eleves[$cpt] =  $row->fetchAll();
+            $cpt++ ; 
+        }
+
+        return $all_eleves;
+
+    }
     
 }

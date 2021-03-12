@@ -150,7 +150,7 @@ if ($_GET["route"] == 'ajout_seance_form') {
 if ($_GET["route"] == 'ajout_seance') {
       $pc = new seance_controller();
       $pc->ajout_seance_controller();
-      header('Location:  admin');
+      header('Location:  ajout_seance_form');
 };
 
 
@@ -248,8 +248,9 @@ if ($_GET["route"] == 'espace_enseignant') {
 if ($_GET["route"] == 'enseignant_info') {
       session_start();
       if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 2) {
-            echo "marhba" ; 
-      } else {
+            $ec = new enseignant_controller() ; 
+            $ec->afficher_enseignant_infos_controller($_SESSION['enseignant_id']) ; 
+       } else {
             header('Location:  access_denied.php');
       }
 };

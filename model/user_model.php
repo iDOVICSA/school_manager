@@ -45,11 +45,15 @@ class user_model
                 $_SESSION["user_type"] = 1;
                 header('Location: ajout_article_form');
             }
-            if ($_POST['user_type'] == 2) {
-
+            if ($_POST['user_type'] == 2) { // get enseignant
+                $sql = "select * from users INNER JOIN enseignant on users.user_id=enseignant.user_id where (email,password,user_type) = (?,?,?)";
+                $row = $c->prepare($sql);
+                $row->execute([$_POST['email'], $_POST["password"], $_POST['user_type']]);
+                $enseignant =  $row->fetch();
                 session_start();
                 $_SESSION["valid"] = true;
                 $_SESSION["user_type"] = 2;
+                $_SESSION['enseignant_id'] = $enseignant['enseignant_id'];
                 header('Location: enseignant_info');
             }
         }

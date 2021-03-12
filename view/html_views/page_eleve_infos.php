@@ -94,7 +94,7 @@
                         <h3 class="text-2xl font-semibold ">Mon Emploi du temps</h3>
                         <hr>
                     </div>
-                    <div class="text-center grid grid-cols-7 gap-4 bg-indigo-600 bg-opacity-25 w-full">
+                    <div class="text-center grid grid-cols-6 gap-4 bg-indigo-600 bg-opacity-25 w-full">
                         <div>
                             <div class="mb-5">Samedi</div>
                             <div class="mb-5">
