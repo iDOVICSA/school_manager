@@ -12,6 +12,8 @@ require_once('./controller/seance_controller.php');
 require_once('./controller/reception_controller.php');
 require_once('./controller/page_espace_parent_controller.php');
 require_once('./controller/parent_controller.php');
+require_once('./controller/repas_controller.php');
+
 
 if ($_GET["route"] == 'Acceuil') {
       $pa = new page_acceuil_controller();
@@ -171,7 +173,22 @@ if ($_GET["route"] == 'ajout_reception') {
 };
 
 
+if ($_GET["route"] == 'ajout_repas_form') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
 
+            $pc = new repas_controller();
+            $pc->afficher_ajout_repas_form_controller();
+      } else {
+            header('Location:  admin');
+      }
+};
+
+if ($_GET["route"] == 'ajout_repas') {
+      $pc = new repas_controller();
+      $pc->ajout_repas_controller();
+      header('Location:  ajout_repas_form');
+};
 
 
 
@@ -195,10 +212,47 @@ if ($_GET["route"] == 'ajout_enseignant') {
 
 
 
+if ($_GET["route"] == 'ajout_parent_form') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 1) {
+
+            $pc = new enseignant_controller();
+            $pc->afficher_ajout_enseignant_form_controller();
+      } else {
+            header('Location:  admin');
+      }
+    
+};
+
+
+if ($_GET["route"] == 'ajout_parent') {
+      $pc = new enseignant_controller();
+      $pc->ajout_enseignant_controller();
+      header('Location:  admin');
+};
+
+
 // l'espace enseignant -----------------------------------------------------------------------------------------
 
 
+if ($_GET["route"] == 'espace_enseignant') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 2) {
+            header('Location:  enseignant_info');
+      } else {
+            $ac = new user_controller();
+            $ac->afficher_page_login_enseignant_controller();
+      }
+};
 
+if ($_GET["route"] == 'enseignant_info') {
+      session_start();
+      if (isset($_SESSION['valid']) && $_SESSION['user_type'] == 2) {
+            echo "marhba" ; 
+      } else {
+            header('Location:  access_denied.php');
+      }
+};
 
 
 

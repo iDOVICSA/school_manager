@@ -6,7 +6,7 @@
 <body>
     <div class="w-full relative mt-4 shadow-2xl rounded my-24 overflow-hidden">
         <div class="top h-64 w-full bg-blue-600 overflow-hidden relative">
-             <img src="./images/cover_eleve_page.jpg" alt="" class="bg w-full h-full object-cover object-center absolute z-0">
+            <img src="./images/cover_eleve_page.jpg" alt="" class="bg w-full h-full object-cover object-center absolute z-0">
             <div class="flex flex-col justify-center items-center relative h-full bg-black bg-opacity-50 text-white">
                 <img src="./images/avatar.png" class="h-24 w-24 object-cover rounded-full">
                 <h1 class="text-2xl font-semibold"><?php echo $eleve['nom'] . " " . $eleve['prenom']; ?></h1>
@@ -93,6 +93,116 @@
                     <div>
                         <h3 class="text-2xl font-semibold ">Mon Emploi du temps</h3>
                         <hr>
+                    </div>
+                    <div class="text-center grid grid-cols-7 gap-4 bg-indigo-600 bg-opacity-25 w-full">
+                        <div>
+                            <div class="mb-5">Samedi</div>
+                            <div class="mb-5">
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Samedi") {
+                                        echo "<div class='mb-5'>";
+
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+
+                                        //   echo "<div>" . $eleve_note['note'] . "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">Dimanche</div>
+                            <div>
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Dimanche") {
+                                        echo "<div class='mb-5'>";
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">Lundi</div>
+                            <div>
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Lundi") {
+                                        echo "<div class='mb-5'>";
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+
+                                        //   echo "<div>" . $eleve_note['note'] . "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">Mardi</div>
+                            <div>
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Mardi") {
+                                        echo "<div class='mb-5'>";
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">Mercredi</div>
+                            <div>
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Mercredi") {
+                                        echo "<div class='mb-5'>";
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="mb-5">Jeudi</div>
+                            <div>
+                                <?php
+                                foreach ($eleve_edt as $edt) {
+                                    if ($edt['jour'] == "Jeudi") {
+                                        echo "<div class='mb-5'>";
+                                        echo substr($edt['heure_debut'], 0, -3) . " - ";
+                                        echo substr($edt['heure_fin'], 0, -3);
+                                        echo "<br>";
+                                        echo $edt['nom_matiere'];
+                                        echo "</div>";
+                                    }
+                                }
+                                ?>
+                            </div>
+                        </div>
+                      
                     </div>
                     <div>
                         <h3 class="text-2xl font-semibold ">Mes notes</h3>

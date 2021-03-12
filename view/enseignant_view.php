@@ -7,4 +7,15 @@ class enseignant_view
       require_once("./view/html_views/admin_dashboard.php") ; 
     require_once ("./view/html_views/ajout_enseignant_form.php") ;
    }
+
+
+   public function afficher_page_login_enseignant_view()
+   {
+      $user_type=2 ; 
+
+      require ("./view/html_views/login.php") ;
+   }
+
+
+   
 }

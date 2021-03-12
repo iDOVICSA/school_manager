@@ -16,6 +16,12 @@ class eleve_controller {
         $mtf = new eleve_model() ;
         return $mtf->get_eleve_notes_model($eleve_id) ;
     }
+    public function get_eleve_edt_controller($eleve_id)
+    {
+        $mtf = new eleve_model() ;
+        return $mtf->get_eleve_edt_model($eleve_id) ;
+    }
+
     public function afficher_eleve_infos_controller($eleve_id)
     {
         $v = new eleve_view() ;
@@ -34,5 +40,3 @@ class eleve_controller {
     }
  
 }
-
-?>

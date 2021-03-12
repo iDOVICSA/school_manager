@@ -74,6 +74,19 @@
                     </span>
                 </button>
             </li>
+            <li class="pl-8 py-2 font-semibold text-gray-700 dark:text-gray-400
+				hover:bg-green-200 dark-hover:bg-pink-500 mb-2 transition
+				duration-500 ease-in-out">
+
+                <button class="focus:text-pink-500 dark-focus:text-pink-400
+					focus:outline-none w-full transition duration-500 ease-in-out">
+
+                    <span class="flex items-center">
+                         
+                        <a class="ml-4 capitalize" href="ajout_reception_form">Planifer Reception</a>
+                    </span>
+                </button>
+            </li>
 
             <li class="pl-8 py-2 font-semibold text-gray-700 dark:text-gray-400
 				hover:bg-green-200 dark-hover:bg-pink-500 mb-2 transition
@@ -98,7 +111,7 @@
 
                     <span class="flex items-center">
                         
-                        <a class="ml-4 capitalize">ajout parent</a>
+                        <a class="ml-4 capitalize" href="ajout_parent_form">ajout parent</a>
                     </span>
                 </button>
             </li>
@@ -112,7 +125,7 @@
 
                     <span class="flex items-center">
                        
-                        <a class="ml-4 capitalize">Repas d'aujourd'hui</a>
+                        <a class="ml-4 capitalize" href="ajout_repas_form">Repas d'aujourd'hui</a>
                     </span>
                 </button>
             </li>
@@ -139,7 +152,6 @@
 					focus:outline-none w-full transition duration-500 ease-in-out">
 
                     <span class="flex items-center">
-                       
                         <a class="ml-4 capitalize" href="deconnexion">Déconnexion</a>
                     </span>
                 </button>

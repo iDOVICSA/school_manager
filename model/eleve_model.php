@@ -52,6 +52,7 @@
     }
     public function get_eleve_notes_model($eleve_id)
     {
+        
         $connection_model = new connection_model() ; 
         $c = $connection_model->connexion() ;  
         $sql = "select * from eleve  INNER JOIN notes on notes.eleve_id = eleve.matricule INNER JOIN matiere on matiere.matiere_id=notes.matiere_id where (matricule) =(?)" ;
@@ -60,6 +61,22 @@
         $eleve = $row->fetchAll() ;
         $connection_model->deconnexion($c) ; 
         return $eleve;
+    }
+    
+    function get_eleve_edt_model($eleve_id)
+    {
+        $connection_model = new connection_model() ; 
+        $c = $connection_model->connexion() ;  
+        $sql = "select classe_id from eleve  where (matricule) =(?)" ;
+        $row = $c->prepare($sql) ;    
+        $row->execute([$eleve_id]) ; 
+        $eleve_classe_id = $row->fetch() ;
+        $sql = "select * from seance INNER JOIN matiere on seance.matiere_id = matiere.matiere_id    where (classe_id) =(?)" ;
+        $row = $c->prepare($sql) ;    
+        $row->execute([intval($eleve_classe_id)]); 
+        $eleve_edt = $row->fetchAll();
+        $connection_model->deconnexion($c); 
+        return $eleve_edt;
     }
 
     public function get_eleve_infos_model($eleve_id)

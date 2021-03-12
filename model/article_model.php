@@ -61,7 +61,7 @@
             $audiance = 6 ;
 
           }
-                  $sql = "INSERT INTO article  (title,image,description,audiance_article) VALUES(?,?,?,?)";
+        $sql = "INSERT INTO article  (title,image,description,audiance_article) VALUES(?,?,?,?)";
         $row = $c->prepare($sql);
         $row->execute([$_POST['title'],basename($_FILES["fileToUpload"]["name"]),$_POST["description"],$audiance]);
     }

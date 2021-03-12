@@ -23,7 +23,7 @@ class user_model
                 $eleve =  $row->fetch();
                 session_start();
                 $_SESSION["valid"] = true;
-                $_SESSION["user_type"] = 4 ; 
+                $_SESSION["user_type"] = 4;
                 $_SESSION['matricule'] = $eleve['matricule'];
                 header('Location: eleve_info');
             }
@@ -34,18 +34,24 @@ class user_model
                 $parent =  $row->fetch();
                 session_start();
                 $_SESSION["valid"] = true;
-                $_SESSION["user_type"] = 3 ; 
+                $_SESSION["user_type"] = 3;
                 $_SESSION['parent_id'] = $parent['parent_id'];
                 header('Location: parent_info');
             }
-            if ($_POST['user_type'] ==1) {
-                
+            if ($_POST['user_type'] == 1) {
+
                 session_start();
                 $_SESSION["valid"] = true;
-                $_SESSION["user_type"] = 1 ; 
-                 header('Location: ajout_article_form');
+                $_SESSION["user_type"] = 1;
+                header('Location: ajout_article_form');
             }
+            if ($_POST['user_type'] == 2) {
 
+                session_start();
+                $_SESSION["valid"] = true;
+                $_SESSION["user_type"] = 2;
+                header('Location: enseignant_info');
+            }
         }
         $connection_model->deconnexion($c);
     }
